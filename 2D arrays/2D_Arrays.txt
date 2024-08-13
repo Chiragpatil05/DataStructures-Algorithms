@@ -1,0 +1,24 @@
+1. what is multidimensional array
+=> array of array
+=> datatype array_name [size1][size2]----[sizen]
+=> total number of elements => size1*size2---*sizen
+
+2. what is 2D array
+=> two dimensional array
+=> datatype array_name [row][col]
+=> arr[i][j] where i = "row number" & j = "column number"
+=> total number of elements => row*col
+=> int arr[2][3]={1,2,3,4,5,6}
+=> int arr[2][3]={{1,2,3},{4,5,6}}
+
+3. what is 3D array
+=> three dimensional array
+=> int arr [3][2][4] => 3 (2d array of 2*4)
+
+4. traverse a array
+for(int i=0 ; i<row ; i++){
+    for(int j=0 ; j<col ; j++){
+        cout << arr[i][j] << " "; 
+    }
+    cout << endl;
+}
