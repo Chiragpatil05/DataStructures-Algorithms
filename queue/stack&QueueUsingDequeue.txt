@@ -1,0 +1,30 @@
+#include<iostream>
+#include<deque>
+
+class stack{
+    private:
+        deque<int> dq;
+
+    public:
+        void push(int x){
+            dq.push_back(x);
+        }
+
+        void pop(){
+            dq.pop_back();
+        }
+};
+
+class queue{
+    private:
+        deque<int> dq;
+
+    public:
+        void push(int x){
+            dq.push_back(x);
+        }
+
+        void pop(){
+            dq.pop_front();
+        }
+};
