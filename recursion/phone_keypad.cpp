@@ -10,7 +10,7 @@ void f(string &str , int i , string result , vector<string> &li , vector<string>
         li.push_back(result);
         return;
     }
-   
+
     int digit = str[i]-'0';
     
     for(int j=0 ; j<v[digit].size() ; j++)
