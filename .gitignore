@@ -15,3 +15,5 @@ minElement.exe
 countVowels.exe
 upperLower.exe
 linearSearch.exe
+array_subsequence.exe
+string_subsequence.exe
