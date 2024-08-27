@@ -1,0 +1,33 @@
+class Solution {
+public:
+    void paranthesis(int n , int openingBracket , int closingBracket , string &temp , vector<string> &ans){
+        if(openingBracket == n && closingBracket == n){
+            ans.push_back(temp);
+            return;
+        }
+
+        // opening paranthesis
+        if(openingBracket < n){
+            temp.push_back('(');
+            paranthesis(n , openingBracket + 1 , closingBracket , temp , ans);
+            temp.pop_back();
+        }
+
+        // right paranthesis
+        if(closingBracket < openingBracket){
+            temp.push_back(')');
+            paranthesis(n , openingBracket , closingBracket + 1 , temp , ans);
+            temp.pop_back();
+        }
+    }
+
+    vector<string> generateParenthesis(int n) {
+        int openingBracket = 0;
+        int closingBracket = 0;
+        string temp;
+        vector<string> ans;
+
+        paranthesis(n , openingBracket , closingBracket , temp , ans);
+        return ans;
+    }
+};
