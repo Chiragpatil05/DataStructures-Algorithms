@@ -18,3 +18,5 @@ linearSearch.exe
 array_subsequence.exe
 string_subsequence.exe
 subsetTargetSum.exe
+perfectSum.exe
+targetSumRepetation.exe
