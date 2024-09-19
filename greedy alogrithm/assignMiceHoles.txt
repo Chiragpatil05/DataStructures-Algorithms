@@ -1,0 +1,18 @@
+int assignMiceHoles(int N , int M[] , int H[]) {
+        int ans = 0;
+        
+        // sort mice
+        sort(M , M + N);
+        
+        // sort holes
+        sort(H , H + N);
+        
+        // difference between holes and mice should be minimum
+        for(int i=0 ; i<N; i++){
+            int difference = abs(H[i] - M[i]);
+            ans = max(ans , difference);
+        }
+        
+        return ans;
+        
+}
