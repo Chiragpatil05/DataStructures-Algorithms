@@ -1,0 +1,83 @@
+ vector<int> candyStore(int candies[], int N, int k)
+    {  
+        vector<int> ans;
+        
+        // sort
+        sort(candies , candies + N);
+        
+        // calculate min amount
+        int min_amount = 0;
+        int start = 0;
+        int end = N-1;
+        
+        while(start <= end){
+            min_amount = min_amount + candies[start];
+            start++;
+            end = end - k;
+        }
+        ans.push_back(min_amount);
+        
+        // calculate max amount
+        int max_amount = 0;
+        start = N-1;
+        end = 0;
+        
+        while(start >= end){
+            max_amount = max_amount + candies[start];
+            start--;
+            end = end + k;
+        }
+        ans.push_back(max_amount);
+        
+        return ans;
+    }
+    
+    
+    
+    
+     /*
+        int findMinValue(int candies[] , int N){
+        int mini = INT_MAX;
+        for(int i=0 ; i<N ; i++){
+            if(candies[i] < mini){
+                mini = candies[i];
+                candies[i] = -1;
+            }
+        }
+        return mini;
+    }
+    
+    int findMaxValue(int candies[] , int N){
+        int maxi = INT_MIN;
+        for(int i=0 ; i<N ; i++){
+            if(candies[i] > maxi){
+                maxi = candies[i];
+                candies[i] = -1;
+            }
+        }
+        return maxi;
+    }
+        
+        int newN = N;
+        int minAmount = 0;
+        int maxAmount = 0;
+        vector<int> ans;
+        
+        while(N){
+            int minValue = findMinValue(candies , N);
+            minAmount = minAmount + minValue;
+            N = N - 1 - K;
+        }
+        ans.push_back(minAmount);
+        
+        N = newN;
+        while(N){
+            int maxValue = findMaxValue(candies , N);
+            maxAmount = maxAmount + maxValue;
+            N = N - 1 - K;
+        }
+        ans.push_back(maxAmount);
+        
+        return ans;
+    }
+    */
