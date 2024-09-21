@@ -1,0 +1,54 @@
+struct Job 
+{ 
+    int id;	 // Job Id 
+    int dead; // Deadline of job 
+    int profit; // Profit if job is over before or on deadline 
+};
+
+class Solution 
+{
+    public:
+    static bool customSort(Job j1 , Job j2){
+        return j1.profit > j2.profit;
+    }
+    
+    //Function to find the maximum profit and the number of jobs done.
+    vector<int> JobScheduling(Job arr[], int n) 
+    { 
+        // approach - we have to maximize the profit , so we will sort the job on the basis of the profit , and maximum deadline jo bhi ho us size ka array create karenge and sabse phele sabse highest profit
+        // wali job ko assign karenge , and dekhenge ki deadline pe kam ya usse kam pe usko kar skte hai ki nhi ..
+        
+        // sort the jobs on the basis of the profit
+        sort(arr , arr + n , customSort);
+        
+        // find maximum deadline
+        int maxDeadline = 0;
+        for(int i=0 ; i<n ; i++){
+            maxDeadline = max(maxDeadline , arr[i].dead);
+        }
+        
+        // we are starting from index 1 => means from job deadline with 1 and so on
+        // deadline[i] = 0 => ki isdeadline pe ya iske phele koi task nhi hua hai
+        vector<bool> task(maxDeadline+1 , 0);
+        
+        // ans[number of jobs done , maximum profit]
+        vector<int> ans(2 , 0);
+        
+        
+        // sabse phele maximum profir wale ko assign karo
+        for(int i=0 ; i<n ; i++){
+            // koi bhi task apni deadline se phele ya us par ho skta hai kya check karo peeche se
+            for(int j=arr[i].dead ; j>0 ; j--){
+                if(task[j] != 1){
+                    task[j] = 1;
+                    ans[0] ++;
+                    ans[1] = ans[1] + arr[i].profit;
+                    break;
+                }
+            }
+        }
+        
+        return ans;
+        
+    } 
+};
