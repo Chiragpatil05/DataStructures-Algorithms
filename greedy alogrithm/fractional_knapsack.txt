@@ -1,0 +1,43 @@
+
+struct Item{
+    int value;
+    int weight;
+};
+
+
+class Solution {
+  public:
+    static bool customSort(Item a , Item b){
+        // a.value     b.value
+        // -------  >  -------  => cross multiply : a.value*b.weight > b.value*a.weight
+        // a.weight    b.weight
+        
+        return a.value * b.weight > b.value * a.weight;
+    }
+  
+    // Function to get the maximum total value in the knapsack.
+    double fractionalKnapsack(int w, Item arr[], int n) {
+        // sort the items on the basis of value / weight in descending order
+        sort(arr , arr+n , customSort);
+        
+        double maxProfit = 0;
+        int i = 0;
+        
+        while(w && i<n){
+            // jab pura item knapsack mai dalenge
+            if(arr[i].weight <= w){
+                maxProfit = maxProfit + arr[i].value;
+                w = w - arr[i].weight;
+            }
+            else{ // ab item ka breakdown karke kanpsack mai dalna padega
+                double temp = arr[i].value;
+                temp = temp / arr[i].weight;
+                maxProfit = maxProfit + w*temp;
+                w = 0;
+            }
+            i++;
+        }
+        
+        return maxProfit;
+    }
+};
