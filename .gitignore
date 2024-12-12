@@ -33,3 +33,5 @@ runtime_polymorphism.exe
 abstractClass.exe
 numberToWord.exe
 constructorDelegation.exe   
+ConsDestructorOrder.exe
+inheritance.exe
