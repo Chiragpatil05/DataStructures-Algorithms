@@ -37,3 +37,5 @@ ConsDestructorOrder.exe
 inheritance.exe
 diamondProblem.exe
 compileTimePolymorphism.exe
+treePaths.exe
+ExceptionHandling.exe
