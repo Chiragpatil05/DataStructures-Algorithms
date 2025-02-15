@@ -40,3 +40,4 @@ compileTimePolymorphism.exe
 treePaths.exe
 ExceptionHandling.exe
 adjacencyMatrix.exe
+adjacencyList.exe
